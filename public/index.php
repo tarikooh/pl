@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../config/db.php';
 
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,8 +24,8 @@ require_once __DIR__ . '/../config/db.php';
 
     <div class="container">
       <header class="tm-site-header">
-        <h1 class="tm-site-name">Shelf</h1>
-        <p class="tm-site-description">Your Online Bookstore</p>
+        <h1 class="tm-site-name">PL</h1>
+        <p class="tm-site-description">Your Online Public Listings Website</p>
 
         <nav class="navbar navbar-expand-md tm-main-nav-container">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#tmMainNav" aria-controls="tmMainNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,10 +34,10 @@ require_once __DIR__ . '/../config/db.php';
 
           <div class="collapse navbar-collapse tm-main-nav" id="tmMainNav">
             <ul class="nav nav-fill tm-main-nav-ul">
-              <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Catalogs</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Awards</a></li>
-              <li class="nav-item"><a class="nav-link" href="team.html">Our Team</a></li>
+              <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="addListing.php">Add Listing</a></li>
+              <!-- <li class="nav-item"><a class="nav-link" href="#">Awards</a></li>
+              <li class="nav-item"><a class="nav-link" href="team.html">Our Team</a></li> -->
               <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
             </ul>
           </div>
@@ -47,34 +48,39 @@ require_once __DIR__ . '/../config/db.php';
       <div class="tm-main-content">
         <section class="tm-margin-b-l">
           <header>
-            <h2 class="tm-main-title">Welcome to our bookstore</h2>
+            <h2 class="tm-main-title"><t/>Welcome to PL</h2>
           </header>
 
-          <p>Shelf HTML template is provided by Tooplate. Please tell your friends about it. Thank you. Images are from Unsplash website. In tincidunt metus sed justo tincidunt sollicitudin. Curabitur magna tellus, condimentum vitae consectetur id, elementum sit amet erat.</p>
+          <p>This an Online platform where anyone can post listing and connect with others.</p>
 
           <div class="tm-gallery">
             <div class="row">
         <?php
             $images = array("image-01.jpg","image-02.jpg","image-03.jpg","image-04.jpg","image-05.jpg","image-06.jpg","image-07.jpg","image-08.jpg");
-
-            for ($i = 1; $i <= 8; $i++) {
-                $image = "img/".$images[$i];
+            $i = 0;
+            $sql = "SELECT * FROM products;";
+            $result = mysqli_query($conn, $sql);
+            while($row = mysqli_fetch_assoc($result)){
+                $category = $row['category'];
+                $image = "uploads/" . $category . "/" .$row['mimage'];
+                $name = $row['name'];
+                $price = $row['price'];
+                $sdesc = $row['sdesc'];
                 echo <<<HTML
                     <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
                         <a href="preview.html">
                         <div class="tm-gallery-item-overlay">
                             <img src="$image" alt="Image" class="img-fluid tm-img-center" width="250" height="360">
                         </div>
-                        <div class="product-title">Sample Product Title</div>
-                        <div class="product-price">$29.99</div>
+                        <div class="product-title">$name</div>
+                        <div class="product-price">$price</div>
                         <div class="product-description">
-                        This is a short description of the product. It's engaging and informative, just like you'd see on a store page.
+                        $sdesc;
                         </div>
-
-                        <p class="tm-figcaption">Nam vitae odio</p>
                         </a>
                     </figure>
                 HTML;
+                $i++;
             }
         ?>
             </div>
@@ -82,10 +88,8 @@ require_once __DIR__ . '/../config/db.php';
 
           <nav class="tm-gallery-nav">
             <ul class="nav justify-content-center">
-              <li class="nav-item"><a class="nav-link active" href="#">1</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">2</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">3</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">4</a></li>
+              <li class="nav-item"><a class="nav-link active" href="#">prev</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">next</a></li>
             </ul>
           </nav>
         </section>

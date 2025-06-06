@@ -9,6 +9,7 @@ $pass = "Dontdosql101!";
 $conn = mysqli_connect("127.0.0.1", "root", "Dontdosql101!", "pl", "3306");
 if(!$conn){
     die("Connection failed: " . mysqli_connect_error());
-}else echo "<h1>Successfully connected.<h1/>";
+}
+//else print("Successfully connected to database.");
 
 ?>
