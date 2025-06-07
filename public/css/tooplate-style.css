@@ -2,7 +2,7 @@
 body {
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 	font-size: 18px;
-	background: url('../img/shelf-bg.jpg');
+	background: url('../img/shelf-bg.png');
 	padding: 0 15px;
 	overflow-x: hidden;
 }
@@ -93,7 +93,7 @@ button:focus { outline: none; }
 .tm-site-description { font-size: 1.4rem; }
 
 .tm-site-header {
-	background: url('../img/header-01.jpg') no-repeat;
+	background: url('../img/pl-bg.jpg') no-repeat;
 	background-size: cover;
 	height: 300px;
 	padding: 60px 80px;
@@ -270,13 +270,65 @@ footer a:hover {
 }
 
 
-.form-control { 
+
+/*---------------------------------------
+  CUSTOM FORM               
+-----------------------------------------*/
+
+.custom-form .input-group {
+  background-color: white;
+  border: 2px solid var(--border-color);
+  border-radius: .25rem;
+  margin-bottom: 24px;
+  padding-left: 20px;
+}
+
+.custom-form .textarea-group label {
+  margin-top: 13px;
+}
+
+.custom-form label {
+  margin-right: 10px;
+  margin-bottom: 0;
+}
+
+.custom-form .form-control {
+  background-color: white;
+  box-shadow: none;
+  border: 0;
+  color: var(--white-color);
+  padding-top: 12px;
+  padding-bottom: 12px;
+  outline: none;
+}
+
+.custom-form .form-control:hover,
+.custom-form .form-control:focus {
+  border-color: var(--secondary-color);
+}
+
+.custom-form button[type="submit"] {
+  background: lightskyblue;
+  border: none;
+  margin-bottom: 0;
+}
+
+.custom-form button[type="submit"]:hover,
+.custom-form button[type="submit"]:focus {
+  background: #0066CC;
+  border-color: transparent;
+}
+
+
+
+/* .form-control { 
 	border: 1px solid rgba(0, 0, 0, 0.37);
 	border-radius: 0; 
 	font-size: 1.2rem;
 	padding: .75rem .75rem;    
 }
-.form-control:focus { border-color: #076599; }
+.form-control:focus { border-color: #076599; } */
+
 .tm-overflow-auto { overflow: auto; }
 #google-map {
     height: 360px;

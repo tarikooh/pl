@@ -13,10 +13,10 @@ require_once __DIR__ . '/../config/db.php';
     <title>PL - Your Online Public Listing Website</title>
 
     <!-- load stylesheets -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">  <!-- Google web font "Open Sans" -->
-    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">                <!-- Font Awesome -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">                                      <!-- Bootstrap style -->
-    <link rel="stylesheet" href="css/tooplate-style.css">                                   <!-- Templatemo style -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400"> 
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">                
+    <link rel="stylesheet" href="css/bootstrap.min.css">                                      
+    <link rel="stylesheet" href="css/tooplate-style.css">                                   
 
 	 </head>
 
@@ -25,7 +25,22 @@ require_once __DIR__ . '/../config/db.php';
     <div class="container">
       <header class="tm-site-header">
         <h1 class="tm-site-name">PL</h1>
-        <p class="tm-site-description">Your Online Public Listings Website</p>
+        <p class="tm-site-description">Your Online Public Listings Website</p><br/><br/>
+
+        <form class="custom-form hero-form" action="search.php" method="get" role="form">
+          <div class="row">
+              <div class="col-lg-9 col-md-6 col-12">
+                  <div class="input-group align-items-center">
+                      <label for="listing-name">Listings </label>
+
+                      <input type="text" name="listing-name" id="listing-name" class="form-control" placeholder="Phones, Cars..." required>
+                  </div>
+              </div>          
+              <div class="col-lg-2 col-md-6 col-12">
+                  <button type="submit" class="form-control tm-btn tm-btn-blue">Search</button>
+              </div>
+          </div>
+        </form>
 
         <nav class="navbar navbar-expand-md tm-main-nav-container">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#tmMainNav" aria-controls="tmMainNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,7 +71,6 @@ require_once __DIR__ . '/../config/db.php';
           <div class="tm-gallery">
             <div class="row">
         <?php
-            $images = array("image-01.jpg","image-02.jpg","image-03.jpg","image-04.jpg","image-05.jpg","image-06.jpg","image-07.jpg","image-08.jpg");
             $i = 0;
             $sql = "SELECT * FROM products;";
             $result = mysqli_query($conn, $sql);
