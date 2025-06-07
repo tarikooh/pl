@@ -54,6 +54,7 @@ require_once __DIR__ . '/../config/db.php';
               <!-- <li class="nav-item"><a class="nav-link" href="#">Awards</a></li>
               <li class="nav-item"><a class="nav-link" href="team.html">Our Team</a></li> -->
               <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+              <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
             </ul>
           </div>
         </nav>
