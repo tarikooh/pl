@@ -71,8 +71,12 @@ require_once __DIR__ . '/../config/db.php';
           <div class="tm-gallery">
             <div class="row">
         <?php
+            $itemsPerPage = 8;
             $i = 0;
-            $sql = "SELECT * FROM products ORDER BY time DESC LIMIT 20;";
+            
+            $offset = $_GET['offset'] ?? 0;
+            // $offset = $_GET["offset"] ?? 0;
+            $sql = "SELECT * FROM products LIMIT " . $itemsPerPage . " OFFSET " . $offset . ";";
             $result = mysqli_query($conn, $sql);
             while($row = mysqli_fetch_assoc($result)){
                 $category = $row['category'];
@@ -105,8 +109,26 @@ require_once __DIR__ . '/../config/db.php';
 
           <nav class="tm-gallery-nav">
             <ul class="nav justify-content-center">
-              <li class="nav-item"><a class="nav-link active" href="#">prev</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">next</a></li>
+              <?php
+                $sql = "SELECT COUNT(*) AS num FROM products";
+                $result =  mysqli_query($conn, $sql);
+                $row = mysqli_fetch_assoc($result);
+                $total = $row["num"];
+                $j = 1;
+                while($j <= floor($total/$itemsPerPage) + 1){
+                  $offset = ($j-1)*$itemsPerPage;
+                  if($offset == $_GET['offset']){
+                    echo <<<HTML
+                    <li class="nav-item"><a class="nav-link active" href="index.php?offset=$offset">$j</a></li>
+                    HTML;
+                  }else {
+                    echo <<<HTML
+                    <li class="nav-item"><a class="nav-link" href="index.php?offset=$offset">$j</a></li>
+                    HTML;
+                  }
+                  $j++;
+                }
+              ?>
             </ul>
           </nav>
         </section>

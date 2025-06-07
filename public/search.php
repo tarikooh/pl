@@ -26,20 +26,20 @@ require_once __DIR__ . '/../config/db.php';
         <h1 class="tm-site-name">PL</h1>
         <p class="tm-site-description">Your Online Public Listings Website</p><br/><br/>
 
-        <form class="custom-form hero-form" action="#" method="get" role="form">
+        <form class="custom-form hero-form" action="search.php" method="get" role="form">
           <div class="row">
               <div class="col-lg-9 col-md-6 col-12">
                   <div class="input-group align-items-center">
-                      <label for="product-name">Listings </label>
+                      <label for="listing-name">Listings </label>
 
-                      <input type="text" name="product-name" id="product-name" class="form-control" placeholder="Phones, Cars..." required>
+                      <input type="text" name="listing-name" id="listing-name" class="form-control" placeholder="Phones, Cars..." required>
                   </div>
               </div>          
               <div class="col-lg-2 col-md-6 col-12">
                   <button type="submit" class="form-control tm-btn tm-btn-blue">Search</button>
               </div>
           </div>
-      </form>
+        </form>
 
         <nav class="navbar navbar-expand-md tm-main-nav-container">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#tmMainNav" aria-controls="tmMainNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,7 +62,12 @@ require_once __DIR__ . '/../config/db.php';
       <div class="tm-main-content">
         <section class="tm-margin-b-l">
           <header>
-            <h2 class="tm-main-title"><t/>Search Results</h2>
+            <?php
+            $search = $_GET["listing-name"];
+              echo <<<HTML
+                <h2 class="tm-main-title"><t/>Search Results For: "$search" </h2>
+                HTML;
+            ?>
           </header>
 
           <div class="tm-gallery">
@@ -72,7 +77,9 @@ require_once __DIR__ . '/../config/db.php';
             if($_SERVER["REQUEST_METHOD"] == "GET"){
               $search = $_GET["listing-name"];
               $i = 0;
-              $sql = "SELECT * FROM products WHERE name REGEXP '.*" . $search . ".*';";
+              $itemsPerPage = 8;            
+              $offset = $_GET['offset'] ?? 0;
+              $sql = "SELECT * FROM products WHERE name REGEXP '.*" . $search . ".*' LIMIT " . $itemsPerPage . " OFFSET " . $offset . ";";
               $result = mysqli_query($conn, $sql);
               while($row = mysqli_fetch_assoc($result)){
                   $category = $row['category'];
@@ -106,8 +113,27 @@ require_once __DIR__ . '/../config/db.php';
 
           <nav class="tm-gallery-nav">
             <ul class="nav justify-content-center">
-              <li class="nav-item"><a class="nav-link active" href="#">prev</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">next</a></li>
+              <?php
+                $sql = "SELECT COUNT(*) AS num FROM products WHERE name REGEXP '.*" . $search . ".*';";
+                $result = mysqli_query($conn, $sql);
+                $row = mysqli_fetch_assoc($result);
+                $total = $row["num"];
+                $j = 1;
+                
+                while($j <= floor($total/$itemsPerPage) + 1){
+                  $offset = ($j-1)*$itemsPerPage;
+                  if($offset == $_GET['offset']){
+                    echo <<<HTML
+                    <li class="nav-item"><a class="nav-link active" href="search.php?listing-name=$search&offset=$offset">$j</a></li>
+                    HTML;
+                  }else {
+                    echo <<<HTML
+                    <li class="nav-item"><a class="nav-link" href="search.php?listing-name=$search&offset=$offset">$j</a></li>
+                    HTML;
+                  }
+                  $j++;
+                }
+              ?>
             </ul>
           </nav>
         </section>
