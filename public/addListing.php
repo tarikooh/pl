@@ -55,6 +55,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
 ?>
+
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -130,6 +133,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           <textarea id="ldesc" name="ldesc" rows="5"></textarea><br/>
           <label for="image">Product Images</label>
           <input type="file" id="image" name="images"><br><br>
+         <img id="preview" style="max-width: 300px; margin-top: 10px;" />
 
           <button type="submit">Add Product</button>
         </form>
@@ -157,6 +161,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
           });
 
+          const imageInput = document.getElementById("imageInput")
+const preview = document.getElementById("preview")
+
+imageInput.addEventListener('change', function(){
+  const file = this.files[0];
+  if(file){
+    const objectUrl = URL.createObjectURL(file)
+    preview.src = objectUrl;
+  }
+})
         </script>
 
   </body>
