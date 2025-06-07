@@ -66,9 +66,12 @@ require_once __DIR__ . '/../config/db.php';
                 $name = $row['name'];
                 $price = $row['price'];
                 $sdesc = $row['sdesc'];
+                $href = "preview.php?pid=" . $row['pid'];
+                //echo $pid;
+
                 echo <<<HTML
                     <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                        <a href="preview.html">
+                        <a href=$href>
                         <div class="tm-gallery-item-overlay">
                             <img src="$image" alt="Image" class="img-fluid tm-img-center" width="250" height="360">
                         </div>
@@ -111,10 +114,11 @@ require_once __DIR__ . '/../config/db.php';
       </div>
 
       <footer>
-        Copyright &copy; <span class="tm-current-year">2018</span> Shelf Company
+          Copyright &copy; <span class="tm-current-year">2018</span> Nobody.
 
-        - Designed by <a href="https://www.facebook.com/tooplate" target="_parent">Tooplate</a>
+          - Designed by <a href="https://www.facebook.com/" target="_parent">The Group</a>
       </footer>
+      
     </div>
 
     <!-- load JS files -->
