@@ -1,7 +1,9 @@
 <?php
 require_once __DIR__ . '/../config/db.php';
-
-
+session_start();
+if($_SESSION["username"]){
+  echo "<p>Welcome back " . $_SESSION["username"];
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -54,7 +56,13 @@ require_once __DIR__ . '/../config/db.php';
               <!-- <li class="nav-item"><a class="nav-link" href="#">Awards</a></li>
               <li class="nav-item"><a class="nav-link" href="team.html">Our Team</a></li> -->
               <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+              <?php if(!isset($_SESSION["username"])) echo <<<HTML
               <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
+              HTML;
+              else echo <<<HTML
+                <li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>
+                HTML;
+              ?>
             </ul>
           </div>
         </nav>
@@ -64,6 +72,7 @@ require_once __DIR__ . '/../config/db.php';
       <div class="tm-main-content">
         <section class="tm-margin-b-l">
           <header>
+
             <h2 class="tm-main-title"><t/>Welcome to PL</h2>
           </header>
 
@@ -87,16 +96,16 @@ require_once __DIR__ . '/../config/db.php';
                 $sdesc = $row['sdesc'];
                 $href = "preview.php?pid=" . $row['pid'];
                 //echo $pid;
-
+                $price = number_format($price, 2);
                 echo <<<HTML
                     <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
                         <a href=$href>
                         <div class="tm-gallery-item-overlay">
                             <img src="$image" alt="Image" class="img-fluid tm-img-center" width="250" height="360">
                         </div>
-                        <div class="product-title">$name</div>
-                        <div class="product-price">$price</div>
-                        <div class="product-description">
+                     <div class="details-container">   <div class="product-title"><span style="font-weight: bold;">Name:</span> $name</div>
+                        <div class="product-price"><span style="font-weight: bold">Price:</span> $price ETB</div>
+                        <div class="product-description"> </div>
                         $sdesc;
                         </div>
                         </a>

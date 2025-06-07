@@ -1,6 +1,55 @@
 <?php
 require_once __DIR__ . '/../config/db.php';
 
+// session_start();
+// //echo "<p>Session is still set to: " . $_SESSION['username'] . "</p>";
+
+// session_abort();
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+    $sql = "SELECT * FROM users WHERE username=? AND password=?";
+    $select = mysqli_prepare($conn, $sql);
+    $select->bind_param("ss", $username, $password);
+    $select->execute();
+    $result = $select->get_result();
+
+    
+    if(isset($_SESSION['username'])){
+        echo "session was: " . $_SESSION['username'] . "<br/>";
+        $_SESSION = array();
+        echo "session is: " . $_SESSION['username'] . "<br/>";
+        session_destroy();
+        $_COOKIE = array();
+    }
+
+    session_start();
+    
+    if($row = mysqli_fetch_assoc($result)){
+        $cookiename = "User";
+        $cookievalue = $username;
+
+        setcookie($cookiename, $cookievalue, time() + 3600);
+        $_SESSION["username"] = $username;
+
+
+        if(!isset($_COOKIE[$cookiename])){
+            echo "Cookie: " . $cookiename . " is not set.";
+
+            $_SESSION["username"] = $username;
+        }else {
+            echo "Cookie: " . $cookiename . " is set.";
+            echo "Value is " . $_COOKIE[$cookiename];
+        }
+
+        header("Location: index.php?username=$username");
+
+    }else{
+        echo "<h1>The Provided information is invalid.</h1>";
+    }
+
+}
 
 ?>
 <!DOCTYPE html>
@@ -46,10 +95,10 @@ require_once __DIR__ . '/../config/db.php';
 
       <div class="tm-main-content">
         <div class="login-container">
-            <form class="login-form">
+            <form class="login-form" action="login.php" method="POST">
             <h2>Login</h2>
-            <input type="text" placeholder="Username" required />
-            <input type="password" placeholder="Password" required />
+            <input type="text" placeholder="Username" name="username" required />
+            <input type="password" placeholder="Password" name="password" required />
             <button type="submit">Login</button>
             <p class="signup-link">Don't have an account? <a href="signup.php">Sign up</a></p>
             </form>

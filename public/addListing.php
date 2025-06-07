@@ -195,8 +195,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <body>
     <div class="container">
         <header class="tm-site-header">
-            <h1 class="tm-site-name">Shelf</h1>
-            <p class="tm-site-description">Your Online Bookstore</p>
+            <h1 class="tm-site-name">PL</h1>
+            <p class="tm-site-description">Your Online Public Listings Website</p>
             <nav class="navbar navbar-expand-md tm-main-nav-container">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#tmMainNav" aria-controls="tmMainNav" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>

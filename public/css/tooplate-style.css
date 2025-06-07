@@ -37,6 +37,8 @@ button:focus { outline: none; }
 	width: 160px;
 }
 
+
+
 .tm-btn-blue {
 	color: white;
 	background-color: #186e9d;
@@ -156,10 +158,13 @@ button:focus { outline: none; }
   border-radius: 10px;
   object-fit: cover;
 }
+
 .tm-gallery .row {
-	margin-left: -10px;
-	margin-right: -10px;
+
+  margin-left: -10px;
+  margin-right: -10px;
 }
+
 
 .tm-gallery-item {
 	padding-left: 10px;
@@ -402,4 +407,12 @@ footer a:hover {
 		font-size: 1rem;
 		padding: 10px 15px;
 	}
+}
+
+.details-container{
+	background-color: lightgray;
+	padding-left: 4px;
+	padding-right: 4px;
+	padding-top: 3px;
+	padding-bottom: 3px;
 }
