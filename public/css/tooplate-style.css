@@ -139,6 +139,23 @@ button:focus { outline: none; }
 	margin: 0 auto;
 }
 
+.tm-gallery-item-overlay {
+  background: #0066CC;
+  max-width: 240px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  text-shadow: #C5F9D0;
+  color: #0e0d0d;
+  background-color: gray;
+}
+
+.tm-gallery-item-overlay img {
+  height: 250px;
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
 .tm-gallery .row {
 	margin-left: -10px;
 	margin-right: -10px;
@@ -147,7 +164,7 @@ button:focus { outline: none; }
 .tm-gallery-item {
 	padding-left: 10px;
 	padding-right: 10px;
-}
+} d
 
 .tm-gallery-item img { 
 	opacity: 1; 
@@ -155,13 +172,16 @@ button:focus { outline: none; }
 	transition: .3s ease-in-out;
 }
 
-/* https://codepen.io/nxworld/pen/ZYNOBZ */
+.tm-gallery-item div{
+	color: 	rgb(9, 48, 98);
+}
+/* https://codepen.io/nxworld/pen/ZYNOBZ
 .tm-gallery-item-overlay {
 	background: #0066CC;
 	max-width: 240px;
 	margin-left: auto;
 	margin-right: auto;
-}
+} */
 
 .tm-gallery-item:hover img { opacity: 0.5; }
 .tm-gallery-item:hover .tm-figcaption {	color: #186e9d; }

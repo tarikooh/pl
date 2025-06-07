@@ -72,7 +72,7 @@ require_once __DIR__ . '/../config/db.php';
             <div class="row">
         <?php
             $i = 0;
-            $sql = "SELECT * FROM products;";
+            $sql = "SELECT * FROM products LIMIT 20 ORDER BY date;";
             $result = mysqli_query($conn, $sql);
             while($row = mysqli_fetch_assoc($result)){
                 $category = $row['category'];

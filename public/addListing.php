@@ -161,16 +161,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
           });
 
-          const imageInput = document.getElementById("imageInput")
-const preview = document.getElementById("preview")
+          const imageInput = document.getElementById("image")
+            const preview = document.getElementById("preview")
 
-imageInput.addEventListener('change', function(){
-  const file = this.files[0];
-  if(file){
-    const objectUrl = URL.createObjectURL(file)
-    preview.src = objectUrl;
-  }
-})
+            imageInput.addEventListener('change', function(){
+              const file = this.files[0];
+              if(file){
+                const objectUrl = URL.createObjectURL(file)
+                preview.src = objectUrl;
+              }
+          })
         </script>
 
   </body>
