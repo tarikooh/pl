@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">  
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">               
     <link rel="stylesheet" href="css/bootstrap.min.css">                                     
-    <link rel="stylesheet" href="css/tooplate-style.css">                                   
+    <link rel="stylesheet" href="css/pl-orig-style.css">                                   
 
 </head>
 
@@ -78,20 +78,7 @@
                     </div>
                 </section>
 
-                <section class="media tm-highlight tm-highlight-w-icon">
-
-                    <div class="tm-highlight-icon">
-                        <i class="fa tm-fa-6x fa-meetup"></i>    
-                    </div>                    
-
-                    <div class="media-body">
-                        <header>
-                            <h2>Need Help?</h2>
-                        </header>
-                        <p class="tm-margin-b">Curabitur magna tellus, condimentum vitae consectetur id, elementum sit amet erat. Phasellus arcu leo, sagittis fringilla nisi et, pulvinar vestibulum mi. Maecenas mollis ullamcorper est at dignissim.</p>
-                        <a href="" class="tm-white-bordered-btn">Live Chat</a>
-                    </div>                    
-                </section>
+                
             </div>
 
             <footer>
@@ -103,57 +90,7 @@
         </div>
         
         <!-- load JS files -->
-        <script src="js/jquery-1.11.3.min.js"></script>         <!-- jQuery (https://jquery.com/download/) -->
-        <script src="js/popper.min.js"></script>                <!-- Popper (https://popper.js.org/) -->
-        <script src="js/bootstrap.min.js"></script>             <!-- Bootstrap (https://getbootstrap.com/) -->
-        <script>     
-
-            /* Google map
-            ------------------------------------------------*/
-            var map = '';
-            var center;
-
-            function initialize() {
-                var mapOptions = {
-                    zoom: 16,
-                    center: new google.maps.LatLng(37.769725, -122.462154),
-                    scrollwheel: false
-                };
-            
-                map = new google.maps.Map(document.getElementById('google-map'),  mapOptions);
-
-                google.maps.event.addDomListener(map, 'idle', function() {
-                  calculateCenter();
-                });
-            
-                google.maps.event.addDomListener(window, 'resize', function() {
-                  map.setCenter(center);
-                });
-            }
-
-            function calculateCenter() {
-                center = map.getCenter();
-            }
-
-            function loadGoogleMap(){
-                var script = document.createElement('script');
-                script.type = 'text/javascript';
-				// use your own API key for Google Maps
-                script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyC_iLYB-9nzlBfwB18WEDTCMla3Cr97lsg&v=3.exp&sensor=false&' + 'callback=initialize';
-                document.body.appendChild(script);
-            } 
-       
-            $(document).ready(function(){
-
-                // Google Map
-                loadGoogleMap();  
-                
-                // Update the current year in copyright
-                $('.tm-current-year').text(new Date().getFullYear());
-
-            });
-
-        </script>             
+        <script src="js/jquery-1.11.3.min.js"></script>         <!-- jQuery (https://jquery.com/download/) -->         
 
 </body>
 </html>

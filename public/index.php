@@ -20,7 +20,7 @@ if($_SESSION["username"]){
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400"> 
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">                
     <link rel="stylesheet" href="css/bootstrap.min.css">                                      
-    <link rel="stylesheet" href="css/tooplate-style.css">                                   
+    <link rel="stylesheet" href="css/pl-orig-style.css">                                   
 
 	 </head>
 
@@ -43,6 +43,9 @@ if($_SESSION["username"]){
               <div class="col-lg-2 col-md-6 col-12">
                   <button type="submit" class="form-control tm-btn tm-btn-blue">Search</button>
               </div>
+              <input type="hidden" name="min" value="0"/>
+              <input type="hidden" name="max" value="1000000000"/>
+              <input type="hidden" name="cat" value="*"/>
           </div>
         </form>
 
@@ -60,8 +63,6 @@ if($_SESSION["username"]){
                   HTML;
               }
               ?>
-              <!-- <li class="nav-item"><a class="nav-link" href="#">Awards</a></li>
-              <li class="nav-item"><a class="nav-link" href="team.html">Our Team</a></li> -->
               <li class="nav-item"><a class="nav-link" href="contact.php">Contact Us</a></li>
               <?php if(!$isLoggedIn) echo <<<HTML
               <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>

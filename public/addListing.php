@@ -145,7 +145,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/tooplate-style.css">
+    <link rel="stylesheet" href="css/pl-orig-style.css">
     <link rel="stylesheet" href="css/add-listing.css">
     <style>
         .image-preview-container {
