@@ -5,5 +5,6 @@ if(isset($_SESSION["username"])){
     $_COOKIE = array();
     session_destroy();  
     header("Location: index.php");
+    
 }else header("Location: login.php");
 ?>

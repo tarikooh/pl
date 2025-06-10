@@ -7,15 +7,17 @@ require_once __DIR__ . '/../config/db.php';
 // session_abort();
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
+    // GET THE USERNAME AND PASSWORD FROM THE FORM
     $username = $_POST["username"];
     $password = $_POST["password"];
+    // CHECK IF THE USERNAME AND PASSWORD MATCH AND IF THEY EXIST IN DATABASE
     $sql = "SELECT * FROM users WHERE username=? AND password=?";
     $select = mysqli_prepare($conn, $sql);
     $select->bind_param("ss", $username, $password);
     $select->execute();
     $result = $select->get_result();
 
-    
+    // REMOVE EXISTING SESSIONS 
     if(isset($_SESSION['username'])){
         echo "session was: " . $_SESSION['username'] . "<br/>";
         $_SESSION = array();
@@ -26,6 +28,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     session_start();
     
+    // CREATES SESSIONS AND COOKIES IF THE MATCHING USERNAME AND PASSWORD  IS FOUND IN DATABASE
     if($row = mysqli_fetch_assoc($result)){
         $cookiename = "User";
         $cookievalue = $username;
@@ -114,11 +117,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </div>
 
     <!-- load JS files -->
-    <script src="js/jquery-1.11.3.min.js"></script>         <!-- jQuery (https://jquery.com/download/) -->
-    <!--
-        <script src="js/popper.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        -->
+    <script src="js/jquery-1.11.3.min.js"></script>
         <script>
 
           $(document).ready(function(){
