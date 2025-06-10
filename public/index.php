@@ -48,7 +48,6 @@ if($_SESSION["username"]){
               <input type="hidden" name="cat" value="*"/>
           </div>
         </form>
-
         <nav class="navbar navbar-expand-md tm-main-nav-container">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#tmMainNav" aria-controls="tmMainNav" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fa fa-bars"></i>
@@ -161,8 +160,10 @@ if($_SESSION["username"]){
             <header>
               <h2>Need Help?</h2>
             </header>
-            <p class="tm-margin-b">Curabitur magna tellus, condimentum vitae consectetur id, elementum sit amet erat. Phasellus arcu leo, sagittis fringilla nisi et, pulvinar vestibulum mi. Maecenas mollis ullamcorper est at dignissim.</p>
-            <a href="" class="tm-white-bordered-btn">Live Chat</a>
+            <p class="tm-margin-b">PL is a public listing website where users can post items, services, or announcements for others to discover. 
+              Whether you're selling a used bike, offering tutoring services, or advertising a local event, 
+              PL makes it easy to create and manage your listings in just a few clicks. </p>
+            <a href="contact.php" class="tm-white-bordered-btn">Call Our Number</a>
           </div>
         </section>
       </div>

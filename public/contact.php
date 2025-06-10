@@ -62,7 +62,11 @@
                         </div>                                       
                     </div>
                     <div class="col-md-6 col-sm-12">
-                        <p class="tm-margin-b-p">Morbi auctor euismod dictum. Morbi eu nibh in nulla interdum placerat. Donec pellentesque est at sem aliquam hendrerit.</p>
+                        <p class="tm-margin-b-p">PL is a public listing website where users can post items, services, or announcements for others to discover. 
+                            Whether you're selling a used bike, offering tutoring services, or advertising a local event, 
+                            PL makes it easy to create and manage your listings in just a few clicks. 
+                            With built-in search and category filters, visitors can quickly find what they're looking for in their area or by interest. 
+                            It's a convenient platform for both individuals and small businesses to connect with a wider audience, all in one organized and accessible space.</p>
                         <address>
                             <span class="tm-blue-text">Mailing Address</span><br>
                             We don't have mail bro.<br>
@@ -82,7 +86,7 @@
             </div>
 
             <footer>
-                Copyright &copy; <span class="tm-current-year">2018</span> Nobody.
+                Copyright &copy; <span class="tm-current-year">2025</span> Nobody.
 
                 - Designed by <a href="https://www.facebook.com/" target="_parent">The Group</a>
             </footer>

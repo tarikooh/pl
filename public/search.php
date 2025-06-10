@@ -187,7 +187,7 @@ require_once __DIR__ . '/../config/db.php';
       </div>
 
       <footer>
-          Copyright &copy; <span class="tm-current-year">2018</span> Nobody.
+          Copyright &copy; <span class="tm-current-year">2025</span> Nobody.
 
           - Designed by <a href="https://www.facebook.com/" target="_parent">The Group</a>
       </footer>
