@@ -4,7 +4,7 @@ $isLoggedIn =FALSE;
 
 session_start();
 if($_SESSION["username"]){
-  echo "<p>Welcome back " . $_SESSION["username"];
+  //echo "<p>Welcome back " . $_SESSION["username"];
   $isLoggedIn = TRUE;
 }else{
     header("Location: index.php");
@@ -117,7 +117,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
         
         // Insert into database
-        $ownerName = "mr.beans";
+        $ownerName = $_SESSION['username'];
         $imagesString = implode(',', $uploadedFiles);
         
         $sql = "INSERT INTO products(name, price, sdesc, ldesc, ownerName, category, mimage, aimage) 

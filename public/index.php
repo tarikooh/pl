@@ -4,7 +4,7 @@ $isLoggedIn =FALSE;
 session_start();
 if($_SESSION["username"]){
   $isLoggedIn = TRUE;
-  echo "<p>Welcome back " . $_SESSION["username"];
+  //echo "<p>Welcome back " . $_SESSION["username"];
 }
 ?>
 <!DOCTYPE html>
@@ -80,7 +80,7 @@ if($_SESSION["username"]){
         <section class="tm-margin-b-l">
           <header>
 
-            <h2 class="tm-main-title"><t/>Welcome to PL</h2>
+            <h2 class="tm-main-title"><t/>Welcome to PL <?php if($isLoggedIn) echo $_SESSION['username'];?></h2>
           </header>
 
           <p>This an Online platform where anyone can post listing and connect with others.</p>
@@ -93,7 +93,7 @@ if($_SESSION["username"]){
             
             $offset = $_GET['offset'] ?? 0;
             // $offset = $_GET["offset"] ?? 0;
-            $sql = "SELECT * FROM products LIMIT " . $itemsPerPage . " OFFSET " . $offset . ";";
+            $sql = "SELECT * FROM products ORDER BY time DESC LIMIT " . $itemsPerPage . " OFFSET " . $offset . ";";
             $result = mysqli_query($conn, $sql);
             while($row = mysqli_fetch_assoc($result)){
                 $category = $row['category'];
