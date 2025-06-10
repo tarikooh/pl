@@ -44,8 +44,7 @@ $row = mysqli_fetch_assoc($result);
                         <ul class="nav nav-fill tm-main-nav-ul">
                             <li class="nav-item"><a class="nav-link" href="index.php    ">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href="addListing.php">Add Listing</a></li>
-                            <li class="nav-item"><a class="nav-link" href="team.html">Our Team</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contact.php">Contact Us</a></li>
                         </ul>
                     </div>    
                 </nav>
@@ -61,6 +60,7 @@ $row = mysqli_fetch_assoc($result);
             $category = $row['category'];
             $image = $row['mimage'];
             $src = "uploads/" . $category . "/" . $image;
+            $ownerName = $row['ownerName'];
 
             echo <<<HTML
                 <section class="row tm-item-preview">
@@ -74,47 +74,50 @@ $row = mysqli_fetch_assoc($result);
                         <p class="tm-margin-b-p"></p>
                         <p class="tm-blue-text tm-margin-b-s">Price: $price</p>
                         <p class="tm-blue-text tm-margin-b-s">Categories: <a href="#" class="tm-blue-text">$category</a></p>
-                        <p class="tm-blue-text tm-margin-b">Rating: <img src="img/star.png" alt="Star image"> <img src="img/star.png" alt="Star image"> <img src="img/star.png" alt="Star image"> <img src="img/star.png" alt="Star image"></p>
-                        <a href="#" class="tm-btn tm-btn-gray tm-margin-r-20 tm-margin-b-s">Owner Profile</a><a href="profile.php?" class="tm-btn tm-btn-blue">Phone Number</a>
+                        <a href="profile.php?ownerName=$ownerName" class="tm-btn tm-btn-gray tm-margin-r-20 tm-margin-b-s">$ownerName Profile</a><a href="profile.php?ownerName=$ownerName" class="tm-btn tm-btn-blue">Phone Number</a>
                     </div>
                 </section>
                 HTML;
         ?>
 
                 <div class="tm-gallery no-pad-b">
+                    
                     <div class="row">
-                        <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item mb-5">
-                            <a href="preview.php">
-                                <div class="tm-gallery-item-overlay">
-                                    <img src="img/image-06.jpg" alt="Image" class="img-fluid tm-img-center">
-                                </div>
-                                <p class="tm-figcaption no-pad-b">Suspendisse suscipit</p>
-                            </a>
-                        </figure>
-                        <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item mb-5">
-                            <a href="preview.php">
-                                <div class="tm-gallery-item-overlay">
-                                    <img src="img/image-03.jpg" alt="Image" class="img-fluid tm-img-center">
-                                </div>
-                                <p class="tm-figcaption no-pad-b">Cras non augue</p>
-                            </a>
-                        </figure>
-                        <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item mb-5">
-                            <a href="preview.php">
-                                <div class="tm-gallery-item-overlay">
-                                    <img src="img/image-08.jpg" alt="Image" class="img-fluid tm-img-center">
-                                </div>
-                                <p class="tm-figcaption no-pad-b">Vivamus facilisis</p>
-                            </a>
-                        </figure> 
-                        <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item mb-5">
-                            <a href="preview.php">
-                                <div class="tm-gallery-item-overlay">
-                                    <img src="img/image-05.jpg" alt="Image" class="img-fluid tm-img-center">
-                                </div>
-                                <p class="tm-figcaption no-pad-b">Quisque velit</p>
-                            </a>
-                        </figure>
+                    <?php
+                        $itemsPerPage = 4;
+                        $i = 0;
+                        
+                        $offset = rand(0, 20);
+                        // $offset = $_GET["offset"] ?? 0;
+                        $sql = "SELECT * FROM products LIMIT " . $itemsPerPage . " OFFSET " . $offset . ";";
+                        $result = mysqli_query($conn, $sql);
+                        while($row = mysqli_fetch_assoc($result)){
+                            $category = $row['category'];
+                            $image = "uploads/" . $category . "/" .$row['mimage'];
+                            $name = $row['name'];
+                            $price = $row['price'];
+                            $sdesc = $row['sdesc'];
+                            $href = "preview.php?pid=" . $row['pid'];
+                            //echo $pid;
+                            $price = number_format($price, 2);
+                            echo <<<HTML
+                                <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                                    <a href=$href>
+                                    <div class="tm-gallery-item-overlay">
+                                        <img src="$image" alt="Image" class="img-fluid tm-img-center" width="250" height="360">
+                                    </div>
+                                <div class="details-container">   <div class="product-title"><span style="font-weight: bold;">Name:</span> $name</div>
+                                    <div class="product-price"><span style="font-weight: bold">Price:</span> $price ETB</div>
+                                    <div class="product-description"> </div>
+                                    $sdesc;
+                                    </div>
+                                    </a>
+                                </figure>
+
+                            HTML;
+                            $i++;
+                        }
+                    ?>
                     </div>   
                 </div>                    
                             
@@ -129,8 +132,6 @@ $row = mysqli_fetch_assoc($result);
         
         <!-- load JS files -->
         <script src="js/jquery-1.11.3.min.js"></script>         <!-- jQuery (https://jquery.com/download/) -->
-        <!-- <script src="js/popper.min.js"></script>                Popper (https://popper.js.org/) -->
-        <!-- <script src="js/bootstrap.min.js"></script>             Bootstrap (https://getbootstrap.com/) -->
         <script>     
        
             $(document).ready(function(){

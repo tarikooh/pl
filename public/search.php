@@ -52,7 +52,7 @@ require_once __DIR__ . '/../config/db.php';
               <li class="nav-item"><a class="nav-link" href="addListing.php">Add Listing</a></li>
               <!-- <li class="nav-item"><a class="nav-link" href="#">Awards</a></li>
               <li class="nav-item"><a class="nav-link" href="team.html">Our Team</a></li> -->
-              <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+              <li class="nav-item"><a class="nav-link" href="contact.php">Contact Us</a></li>
             </ul>
           </div>
         </nav>

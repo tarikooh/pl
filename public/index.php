@@ -1,7 +1,9 @@
 <?php
 require_once __DIR__ . '/../config/db.php';
+$isLoggedIn =FALSE;
 session_start();
 if($_SESSION["username"]){
+  $isLoggedIn = TRUE;
   echo "<p>Welcome back " . $_SESSION["username"];
 }
 ?>
@@ -52,11 +54,16 @@ if($_SESSION["username"]){
           <div class="collapse navbar-collapse tm-main-nav" id="tmMainNav">
             <ul class="nav nav-fill tm-main-nav-ul">
               <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="addListing.php">Add Listing</a></li>
+              <?php if($isLoggedIn){
+                  echo <<<HTML
+                  <li class="nav-item"><a class="nav-link" href="addListing.php">Add Listing</a></li>
+                  HTML;
+              }
+              ?>
               <!-- <li class="nav-item"><a class="nav-link" href="#">Awards</a></li>
               <li class="nav-item"><a class="nav-link" href="team.html">Our Team</a></li> -->
-              <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
-              <?php if(!isset($_SESSION["username"])) echo <<<HTML
+              <li class="nav-item"><a class="nav-link" href="contact.php">Contact Us</a></li>
+              <?php if(!$isLoggedIn) echo <<<HTML
               <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
               HTML;
               else echo <<<HTML

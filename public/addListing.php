@@ -1,6 +1,14 @@
 <?php
 require_once __DIR__ . '/../config/db.php';
+$isLoggedIn =FALSE;
 
+session_start();
+if($_SESSION["username"]){
+  echo "<p>Welcome back " . $_SESSION["username"];
+  $isLoggedIn = TRUE;
+}else{
+    header("Location: index.php");
+}
 $errors = [];
 $success = false;
 
@@ -204,7 +212,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <div class="collapse navbar-collapse tm-main-nav" id="tmMainNav">
                     <ul class="nav nav-fill tm-main-nav-ul">
                         <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.php">Contact Us</a></li>
                     </ul>
                 </div>
             </nav>

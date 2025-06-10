@@ -4,35 +4,23 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--
 
-Template 2092 Shelf
-
-http://www.tooplate.com/view/2092-shelf
-
--->
-    <title>SHELF - Your Online Bookstore</title>
+    <title>PL - Your Online Public Listing Website</title>
 
     <!-- load stylesheets -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">  <!-- Google web font "Open Sans" -->
-    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">                <!-- Font Awesome -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">                                      <!-- Bootstrap style -->
-    <link rel="stylesheet" href="css/tooplate-style.css">                                   <!-- Templatemo style -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">  
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">               
+    <link rel="stylesheet" href="css/bootstrap.min.css">                                     
+    <link rel="stylesheet" href="css/tooplate-style.css">                                   
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-          <![endif]-->
 </head>
 
     <body>
         
         <div class="container">
             <header class="tm-site-header">
-                <h1 class="tm-site-name">Shelf</h1>
-                <p class="tm-site-description">Your Online Bookstore</p>
+                <h1 class="tm-site-name">PL</h1>
+                <p class="tm-site-description">Your Online Public Listings Website</p>
                 
                 <nav class="navbar navbar-expand-md tm-main-nav-container">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#tmMainNav" aria-controls="tmMainNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,8 +32,7 @@ http://www.tooplate.com/view/2092-shelf
                             <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
                             <!-- <li class="nav-item"><a class="nav-link" href="#">Catalogs</a></li> -->
                             <!-- <li class="nav-item"><a class="nav-link" href="#">Awards</a></li> -->
-                            <li class="nav-item"><a class="nav-link" href="team.html">Our Team</a></li>
-                            <li class="nav-item"><a class="nav-link active" href="contact.html">Contact Us</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="contact.php">Contact Us</a></li>
                         </ul>
                     </div>    
                 </nav>
@@ -78,25 +65,16 @@ http://www.tooplate.com/view/2092-shelf
                         <p class="tm-margin-b-p">Morbi auctor euismod dictum. Morbi eu nibh in nulla interdum placerat. Donec pellentesque est at sem aliquam hendrerit.</p>
                         <address>
                             <span class="tm-blue-text">Mailing Address</span><br>
-                            1126 Aenean ac mauris at ex,<br>
-                            venenatis lobortis id in 11600 <br><br>
+                            We don't have mail bro.<br>
+                            Who uses mail in 2025 anyway.<br><br>
                             <div class="tm-blue-text">          
-                                Email: <a class="tm-blue-text" href="mailto:info@company.com">info@company.com</a
+                                Email: <a class="tm-blue-text" href="mailto:info@company.com">info@thegroup.com</a
                                 ><br>
-                                Tel: <a class="tm-blue-text" href="tel:+66100200120">010-020-0120</a><br>
-                                Fax: <a class="tm-blue-text" href="tel:+66900800980">090-080-0980</a><br>    
+                                Tel: <a class="tm-blue-text" href="tel:+251949023487">0949023487</a><br>
+                                Fax: <a class="tm-blue-text" href="tel:+251934332233">0934332233</a><br>    
                             </div>                            
                         </address>
                         
-                    </div>
-                </section>
-
-                <section class="row tm-margin-b-l">
-                    <div class="col-12">
-                        <header>
-                            <h4 class="tm-blue-text tm-margin-b">Our Location</h4>
-                        </header>
-                        <div id="google-map"></div>
                     </div>
                 </section>
 
@@ -117,10 +95,11 @@ http://www.tooplate.com/view/2092-shelf
             </div>
 
             <footer>
-                Copyright &copy; <span class="tm-current-year">2018</span> Shelf Company 
-                
-                - Designed by <a href="https://www.facebook.com/tooplate" target="_parent">Tooplate</a>
-            </footer>    
+                Copyright &copy; <span class="tm-current-year">2018</span> Nobody.
+
+                - Designed by <a href="https://www.facebook.com/" target="_parent">The Group</a>
+            </footer>
+
         </div>
         
         <!-- load JS files -->
